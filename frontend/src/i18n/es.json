@@ -1,4 +1,7 @@
 {
     "hola": "hola",
-    "bienvenido": "bienvenido"
+    "bienvenido": "bienvenido",
+    "acceso": "acceso",
+    "registro": "registro",
+    "email": "correo electrónico"
 }

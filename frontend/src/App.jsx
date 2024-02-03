@@ -4,18 +4,39 @@ import Login from "./pages/login/Login"
 import Signup from "./pages/signup/Signup"
 import Films from "./pages/films/Films"
 import Home from "./pages/home/Home"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { SessionContext } from "./contexts/SessionContext"
+import { useTranslation } from "react-i18next"
 
 function App() {
-
+  const { t, i18n } = useTranslation();
   const { logout, user } = useContext(SessionContext)
+
+
+  useEffect(()=>{
+    console.log(i18n.language)
+  },[])
+
+  function changeLang(e){
+    console.log('changelang')
+    i18n.changeLanguage(e.target.value)
+    
+  }
 
   return (
     <>
       <header>
         <nav>
           <ul>
+          
+            <li>
+              <select onChange={changeLang} name="" id="">
+                <option selected={"en" === i18n.language} value="en">English</option>
+                <option selected={"es" === i18n.language} value="es">Español</option>
+                <option selected={"fr" === i18n.language} value="fr">Français</option>
+                <option selected={"de" === i18n.language} value="de">Deutch</option>
+              </select>
+            </li>
             <li>
               <Link to="/">Home</Link>
             </li>

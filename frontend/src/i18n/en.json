@@ -1,4 +1,7 @@
 {
     "hola": "hello",
-    "bienvenido": "welcome"
+    "bienvenido": "welcome",
+    "acceso": "login",
+    "registro": "sign up",
+    "email": "email"
 }

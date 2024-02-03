@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import en from "./i18n/en.json"
 import es from "./i18n/es.json"
 import fr from "./i18n/fr.json"
+import de from "./i18n/de.json"
 
 
 // the translations
@@ -12,19 +13,33 @@ const resources = {
   en: {
     translation: en
   },
+  es:{
+    translation: es
+  },
   fr: {
     translation: fr
   },
-  es:{
-    translation: es
+  de:{
+    translation: de
   }
+  
 };
+
+function getLang(){
+    const lang = navigator.language.split('-')[0]
+    if(resources[lang]){
+        return lang
+    }
+    else{
+        return "en"
+    }
+}
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+    lng: getLang(), // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
     // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
     // if you're using a language detector, do not define the lng option
 

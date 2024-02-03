@@ -2,9 +2,9 @@ import { useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 import InputValidation from "../shared/InputValidation"
-
+import { useTranslation } from "react-i18next"
 export default function SignupForm(){
-
+    const {t} = useTranslation()
     const [datos, setDatos] = useState({email: "", password:"", name: ""})
     const navigate = useNavigate()
 
@@ -24,11 +24,11 @@ export default function SignupForm(){
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header bg-primary text-white">Registro</div>
+          <div class="card-header bg-primary text-white">{t('registro')}</div>
           <div class="card-body">
             <div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                <label for="exampleInputEmail1" class="form-label">{t('email')}</label>
                 <InputValidation rules={[{text: 'el formato de mail no es valido', fn: (p)=>p.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/) !== null}]} value={datos.email} onChange={(e)=> setDatos({...datos, email: e.target.value })} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
 
                 <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico con nadie más.</div>

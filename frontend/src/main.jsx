@@ -6,6 +6,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter } from 'react-router-dom'
 import { SessionProvider } from './contexts/SessionContext.jsx'
+import './i18n.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
